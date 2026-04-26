@@ -156,23 +156,32 @@ class _HomePageState extends State<HomePage> {
                 String noteText = data['note'];
 
                 //display as a list tile
-                return ListTile(
-                  title: Text(noteText),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () =>
-                            onSettingsPressed(docID, textController.text),
-                        icon: Icon(Icons.edit),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          return onDeletePressed(docID);
-                        },
-                        icon: Icon(Icons.delete),
-                      ),
-                    ],
+                return Container(
+                  padding: EdgeInsets.all(12),
+                  margin: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[200],
+                  ),
+                  child: ListTile(
+                    title: Text(noteText),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          onPressed: () =>
+                              onSettingsPressed(docID, textController.text),
+                          icon: Icon(Icons.edit),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            return onDeletePressed(docID);
+                          },
+                          icon: Icon(Icons.delete),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
