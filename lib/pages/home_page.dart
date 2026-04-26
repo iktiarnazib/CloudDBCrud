@@ -46,8 +46,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  onSettingsPressed(String? id) {
-    textController2.text = textController.text;
+  onSettingsPressed(String? id, String oldText) {
+    textController2.text = oldText;
     showDialog(
       context: context,
       builder: (context) {
@@ -162,7 +162,8 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        onPressed: () => onSettingsPressed(docID),
+                        onPressed: () =>
+                            onSettingsPressed(docID, textController.text),
                         icon: Icon(Icons.edit),
                       ),
                       IconButton(
